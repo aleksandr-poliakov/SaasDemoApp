@@ -16,10 +16,15 @@ struct Commit: Codable {
 }
 
 struct ChangesetEntry: Codable {
-    let status, fileName: String
+    let status: EntryStatus
+    let fileName: String
     let diff: Diff
     
     var isExpand: Bool = false
+    
+    enum EntryStatus: String, Codable {
+        case Deleted, Modified, Added
+    }
 }
 
 struct Diff: Codable {
