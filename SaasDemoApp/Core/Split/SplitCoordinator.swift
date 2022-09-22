@@ -17,8 +17,7 @@ final class SplitCoordinator: Coordinator {
     
     func start() {
         let menuHttpManager = HTTPManager(timeInterval: 0.3, mock: AuthorCommitDataMock())
-        let detailHttpManager = DetailManager(timeInterval: 0, mock: DummyMock())
-        let splitViewController = SplitComposer.composeWith(menuManager: menuHttpManager, detailManager: detailHttpManager)
+        let splitViewController = SplitComposer.composeWith(menuManager: menuHttpManager)
         
         window.rootViewController = splitViewController
         window.makeKeyAndVisible()

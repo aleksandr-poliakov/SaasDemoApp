@@ -10,7 +10,7 @@ import UIKit
 final class SplitComposer {
     private init() {}
 
-    static func composeWith(menuManager: HTTPManagerProtocol, detailManager: DetailFilterManagerProtocol) -> SplitViewController {
+    static func composeWith(menuManager: HTTPManagerProtocol) -> SplitViewController {
         let menuViewController =  MenuViewController(viewModel: MenuViewModel(networkManager: menuManager))
         let detailViewController = DetailViewController()
         menuViewController.delegate = detailViewController
