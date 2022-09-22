@@ -21,6 +21,7 @@ final class DetailViewController: UIViewController {
         return tableView
     }()
     
+    private let loaderView = LoaderActivityIndicatorView(style: .large)
     private let headerView = DetailViewHeader()
     
     private var viewModel: DetailViewModel
@@ -115,14 +116,17 @@ extension DetailViewController: UITableViewDelegate {
 
 extension DetailViewController: DetailTableViewHeaderDelegate {
     func expandCell(index: Int) {
+        loaderView.startLoading(view: view)
         viewModel.fetchData(index: index, id: viewModel.getFileId(index: index)) { [weak self] result in
             switch result {
             case .success:
+                self?.loaderView.stopLoading()
                 self?.viewModel.expandOrCollapseEntry(index: index)
                 UIView.performWithoutAnimation {
                     self?.tableView.reloadSections([index], with: .fade)
                 }
             case .failure:
+                self?.loaderView.stopLoading()
                 break
             }
         }

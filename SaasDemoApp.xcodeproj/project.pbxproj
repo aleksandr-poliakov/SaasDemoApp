@@ -31,6 +31,7 @@
 		1F5582EF28D9FD1D00975701 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5582EE28D9FD1D00975701 /* DetailTableViewCell.swift */; };
 		1FB0655828DC5F62009ADB0F /* DetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0655728DC5F62009ADB0F /* DetailManager.swift */; };
 		1FB0655B28DC64C8009ADB0F /* DummyAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0655A28DC64C8009ADB0F /* DummyAuthor.swift */; };
+		1FB0655E28DC6DF7009ADB0F /* LoaderActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0655D28DC6DF7009ADB0F /* LoaderActivityIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		1F5582EE28D9FD1D00975701 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		1FB0655728DC5F62009ADB0F /* DetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailManager.swift; sourceTree = "<group>"; };
 		1FB0655A28DC64C8009ADB0F /* DummyAuthor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyAuthor.swift; sourceTree = "<group>"; };
+		1FB0655D28DC6DF7009ADB0F /* LoaderActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderActivityIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		1F5582BF28D9C77200975701 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1FB0655C28DC6DDE009ADB0F /* Loader */,
 				1F5582C728D9CA6B00975701 /* Detail */,
 				1F5582C628D9CA6500975701 /* Menu */,
 				1F5582C528D9CA5D00975701 /* Split */,
@@ -233,6 +236,14 @@
 			path = Dummies;
 			sourceTree = "<group>";
 		};
+		1FB0655C28DC6DDE009ADB0F /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				1FB0655D28DC6DF7009ADB0F /* LoaderActivityIndicatorView.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -305,6 +316,7 @@
 			files = (
 				1F5582CF28D9CB5500975701 /* SplitComposer.swift in Sources */,
 				1F5582D528D9CC8600975701 /* AuthorCommitDataMock.swift in Sources */,
+				1FB0655E28DC6DF7009ADB0F /* LoaderActivityIndicatorView.swift in Sources */,
 				1FB0655828DC5F62009ADB0F /* DetailManager.swift in Sources */,
 				1F5582E628D9E72D00975701 /* DetailViewHeader.swift in Sources */,
 				1F5582E928D9F98600975701 /* DataMapper.swift in Sources */,

@@ -9,11 +9,17 @@ import UIKit
 
 final class DetailTableViewCell: UITableViewCell {
 
-    let descriptionLabel = UILabel()
+    private let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = .zero
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        selectionStyle = .none
         setupUI()
     }
     
@@ -22,10 +28,6 @@ final class DetailTableViewCell: UITableViewCell {
     }
     
     private func setupUI() {
-        selectionStyle = .none
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        
         contentView.addSubview(descriptionLabel)
         
         NSLayoutConstraint.activate([
