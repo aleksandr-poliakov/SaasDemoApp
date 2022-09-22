@@ -20,7 +20,6 @@
 		1F5582CF28D9CB5500975701 /* SplitComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5582CE28D9CB5500975701 /* SplitComposer.swift */; };
 		1F5582D228D9CBAB00975701 /* HTTPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5582D128D9CBAB00975701 /* HTTPManager.swift */; };
 		1F5582D528D9CC8600975701 /* AuthorCommitDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5582D428D9CC8600975701 /* AuthorCommitDataMock.swift */; };
-		1F5582D728D9CDB500975701 /* ChangesetEntriesMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5582D628D9CDB500975701 /* ChangesetEntriesMock.swift */; };
 		1F5582DB28D9CDF200975701 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5582DA28D9CDF200975701 /* MockData.swift */; };
 		1F5582DD28D9D44B00975701 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5582DC28D9D44B00975701 /* DetailViewModel.swift */; };
 		1F5582DF28D9D45300975701 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5582DE28D9D45300975701 /* MenuViewModel.swift */; };
@@ -30,6 +29,8 @@
 		1F5582E928D9F98600975701 /* DataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5582E828D9F98600975701 /* DataMapper.swift */; };
 		1F5582ED28D9FD0F00975701 /* DetailTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5582EC28D9FD0F00975701 /* DetailTableViewHeader.swift */; };
 		1F5582EF28D9FD1D00975701 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5582EE28D9FD1D00975701 /* DetailTableViewCell.swift */; };
+		1FB0655828DC5F62009ADB0F /* DetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0655728DC5F62009ADB0F /* DetailManager.swift */; };
+		1FB0655B28DC64C8009ADB0F /* DummyAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0655A28DC64C8009ADB0F /* DummyAuthor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +49,6 @@
 		1F5582CE28D9CB5500975701 /* SplitComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitComposer.swift; sourceTree = "<group>"; };
 		1F5582D128D9CBAB00975701 /* HTTPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPManager.swift; sourceTree = "<group>"; };
 		1F5582D428D9CC8600975701 /* AuthorCommitDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorCommitDataMock.swift; sourceTree = "<group>"; };
-		1F5582D628D9CDB500975701 /* ChangesetEntriesMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesetEntriesMock.swift; sourceTree = "<group>"; };
 		1F5582DA28D9CDF200975701 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		1F5582DC28D9D44B00975701 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		1F5582DE28D9D45300975701 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
@@ -58,6 +58,8 @@
 		1F5582E828D9F98600975701 /* DataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMapper.swift; sourceTree = "<group>"; };
 		1F5582EC28D9FD0F00975701 /* DetailTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewHeader.swift; sourceTree = "<group>"; };
 		1F5582EE28D9FD1D00975701 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		1FB0655728DC5F62009ADB0F /* DetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailManager.swift; sourceTree = "<group>"; };
+		1FB0655A28DC64C8009ADB0F /* DummyAuthor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyAuthor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			children = (
 				1F5582A828D9C72000975701 /* AppDelegate.swift */,
 				1F5582AA28D9C72000975701 /* SceneDelegate.swift */,
+				1FB0655928DC64C0009ADB0F /* Dummies */,
 				1F5582E728D9F97800975701 /* Mapper */,
 				1F5582E228D9E19400975701 /* Decoder */,
 				1F5582D328D9CC7500975701 /* Mocks */,
@@ -175,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				1F5582D128D9CBAB00975701 /* HTTPManager.swift */,
+				1FB0655728DC5F62009ADB0F /* DetailManager.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -184,7 +188,6 @@
 			children = (
 				1F5582DA28D9CDF200975701 /* MockData.swift */,
 				1F5582D428D9CC8600975701 /* AuthorCommitDataMock.swift */,
-				1F5582D628D9CDB500975701 /* ChangesetEntriesMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -220,6 +223,14 @@
 				1F5582E028D9DA2500975701 /* MenuTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		1FB0655928DC64C0009ADB0F /* Dummies */ = {
+			isa = PBXGroup;
+			children = (
+				1FB0655A28DC64C8009ADB0F /* DummyAuthor.swift */,
+			);
+			path = Dummies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +305,7 @@
 			files = (
 				1F5582CF28D9CB5500975701 /* SplitComposer.swift in Sources */,
 				1F5582D528D9CC8600975701 /* AuthorCommitDataMock.swift in Sources */,
+				1FB0655828DC5F62009ADB0F /* DetailManager.swift in Sources */,
 				1F5582E628D9E72D00975701 /* DetailViewHeader.swift in Sources */,
 				1F5582E928D9F98600975701 /* DataMapper.swift in Sources */,
 				1F5582C128D9C78800975701 /* SplitViewController.swift in Sources */,
@@ -311,8 +323,8 @@
 				1F5582C928D9CA7300975701 /* DetailViewController.swift in Sources */,
 				1F5582DD28D9D44B00975701 /* DetailViewModel.swift in Sources */,
 				1F5582ED28D9FD0F00975701 /* DetailTableViewHeader.swift in Sources */,
-				1F5582D728D9CDB500975701 /* ChangesetEntriesMock.swift in Sources */,
 				1F5582DF28D9D45300975701 /* MenuViewModel.swift in Sources */,
+				1FB0655B28DC64C8009ADB0F /* DummyAuthor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

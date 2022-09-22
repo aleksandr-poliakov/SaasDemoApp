@@ -23,7 +23,7 @@ final class DetailViewController: UIViewController {
     
     private let headerView = DetailViewHeader()
     
-    private let viewModel: DetailViewModel
+    private var viewModel: DetailViewModel
 
     init(viewModel: DetailViewModel) {
         self.viewModel = viewModel
@@ -37,14 +37,7 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        loadItems()
         bind()
-    }
-    
-    // MARK: - Load items from API
-    
-    private func loadItems() {
-        viewModel.fetchData()
     }
     
     // MARK: - Bind ViewModel with Observer
@@ -122,9 +115,16 @@ extension DetailViewController: UITableViewDelegate {
 
 extension DetailViewController: DetailTableViewHeaderDelegate {
     func expandCell(index: Int) {
-        viewModel.expandOrCollapseEntry(index: index)
-        UIView.performWithoutAnimation {
-            self.tableView.reloadSections([index], with: .fade)
+        viewModel.fetchData(index: index, id: viewModel.getFileId(index: index)) { [weak self] result in
+            switch result {
+            case .success:
+                self?.viewModel.expandOrCollapseEntry(index: index)
+                UIView.performWithoutAnimation {
+                    self?.tableView.reloadSections([index], with: .fade)
+                }
+            case .failure:
+                break
+            }
         }
     }
 }
@@ -134,6 +134,11 @@ extension DetailViewController: DetailTableViewHeaderDelegate {
 extension DetailViewController: AuthorObjectSelectedDelegate {
     func authorObjectSelected(author: Commit) {
         headerView.author = author
+        
+        let diffs = author.entries.map { $0.diff }
+        let detailFilterManager = DetailManager(timeInterval: author.timeInterval, diffs: diffs)
+        viewModel = DetailViewModel(author: author, networkManager: detailFilterManager)
+        tableView.reloadData()
     }
 }
 

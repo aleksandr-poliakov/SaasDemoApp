@@ -27,14 +27,16 @@ final class HTTPManager: HTTPManagerProtocol {
     }
     
     func get(completionBlock: @escaping HTTPManagerProtocol.Result) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval, execute: { [weak self] in
-            guard self != nil else { return }
-            
-            if let data = self?.mock.data {
-                completionBlock(.success(data))
-            } else {
-                completionBlock(.failure(Error.thereIsNoData))
-            }
-        })
+        DispatchQueue.global(qos: .background).async { [timeInterval] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval, execute: { [weak self] in
+                guard self != nil else { return }
+                
+                if let data = self?.mock.data {
+                    completionBlock(.success(data))
+                } else {
+                    completionBlock(.failure(Error.thereIsNoData))
+                }
+            })
+        }
     }
 }
