@@ -32,6 +32,8 @@
 		1FB0655828DC5F62009ADB0F /* DetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0655728DC5F62009ADB0F /* DetailManager.swift */; };
 		1FB0655B28DC64C8009ADB0F /* DummyAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0655A28DC64C8009ADB0F /* DummyAuthor.swift */; };
 		1FB0655E28DC6DF7009ADB0F /* LoaderActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0655D28DC6DF7009ADB0F /* LoaderActivityIndicatorView.swift */; };
+		1FB0656028DC7693009ADB0F /* DiffMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0655F28DC7693009ADB0F /* DiffMockData.swift */; };
+		1FB0656228DC76F0009ADB0F /* DummyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB0656128DC76F0009ADB0F /* DummyMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		1FB0655728DC5F62009ADB0F /* DetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailManager.swift; sourceTree = "<group>"; };
 		1FB0655A28DC64C8009ADB0F /* DummyAuthor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyAuthor.swift; sourceTree = "<group>"; };
 		1FB0655D28DC6DF7009ADB0F /* LoaderActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderActivityIndicatorView.swift; sourceTree = "<group>"; };
+		1FB0655F28DC7693009ADB0F /* DiffMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffMockData.swift; sourceTree = "<group>"; };
+		1FB0656128DC76F0009ADB0F /* DummyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 			children = (
 				1F5582DA28D9CDF200975701 /* MockData.swift */,
 				1F5582D428D9CC8600975701 /* AuthorCommitDataMock.swift */,
+				1FB0655F28DC7693009ADB0F /* DiffMockData.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				1FB0655A28DC64C8009ADB0F /* DummyAuthor.swift */,
+				1FB0656128DC76F0009ADB0F /* DummyMock.swift */,
 			);
 			path = Dummies;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 				1F5582E628D9E72D00975701 /* DetailViewHeader.swift in Sources */,
 				1F5582E928D9F98600975701 /* DataMapper.swift in Sources */,
 				1F5582C128D9C78800975701 /* SplitViewController.swift in Sources */,
+				1FB0656228DC76F0009ADB0F /* DummyMock.swift in Sources */,
 				1F5582C428D9C87E00975701 /* SplitCoordinator.swift in Sources */,
 				1F5582E128D9DA2500975701 /* MenuTableViewCell.swift in Sources */,
 				1F5582DB28D9CDF200975701 /* MockData.swift in Sources */,
@@ -332,6 +339,7 @@
 				1F5582E428D9E1B200975701 /* DecodeHelper.swift in Sources */,
 				1F5582D228D9CBAB00975701 /* HTTPManager.swift in Sources */,
 				1F5582AB28D9C72000975701 /* SceneDelegate.swift in Sources */,
+				1FB0656028DC7693009ADB0F /* DiffMockData.swift in Sources */,
 				1F5582C928D9CA7300975701 /* DetailViewController.swift in Sources */,
 				1F5582DD28D9D44B00975701 /* DetailViewModel.swift in Sources */,
 				1F5582ED28D9FD0F00975701 /* DetailTableViewHeader.swift in Sources */,

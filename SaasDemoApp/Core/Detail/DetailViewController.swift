@@ -53,6 +53,14 @@ final class DetailViewController: UIViewController {
         }
     }
     
+    // MARK: - PerformAnimation
+    
+    private func performAnimation(index: Int) {
+        UIView.performWithoutAnimation {
+            self.tableView.reloadSections([index], with: .fade)
+        }
+    }
+    
     // MARK: - Configure Layouts
     
     private func setupUI() {
@@ -117,17 +125,15 @@ extension DetailViewController: UITableViewDelegate {
 extension DetailViewController: DetailTableViewHeaderDelegate {
     func expandCell(index: Int) {
         loaderView.startLoading(view: view)
+        viewModel.expandOrCollapseEntry(index: index)
         viewModel.fetchData(index: index, id: viewModel.getFileId(index: index)) { [weak self] result in
             switch result {
             case .success:
                 self?.loaderView.stopLoading()
-                self?.viewModel.expandOrCollapseEntry(index: index)
-                UIView.performWithoutAnimation {
-                    self?.tableView.reloadSections([index], with: .fade)
-                }
+                self?.performAnimation(index: index)
             case .failure:
                 self?.loaderView.stopLoading()
-                break
+                self?.performAnimation(index: index)
             }
         }
     }
@@ -139,8 +145,7 @@ extension DetailViewController: AuthorObjectSelectedDelegate {
     func authorObjectSelected(author: Commit) {
         headerView.author = author
         
-        let diffs = author.entries.map { $0.diff }
-        let detailFilterManager = DetailManager(timeInterval: author.timeInterval, diffs: diffs)
+        let detailFilterManager = DetailManager(timeInterval: author.timeInterval, mock: DiffMockData())
         viewModel = DetailViewModel(author: author, networkManager: detailFilterManager)
         tableView.reloadData()
     }

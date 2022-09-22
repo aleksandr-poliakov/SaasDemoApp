@@ -15,6 +15,7 @@ final class DetailViewModel {
     
     enum Error: Swift.Error {
         case cantGetDiffData
+        case alreadyGetFromBackend
     }
     
     var dataIsLoaded: Observer<Bool>?
@@ -25,6 +26,11 @@ final class DetailViewModel {
     }
     
     func fetchData(index: Int, id: String, completion: @escaping Result) {
+        if entries[index].diff != nil {
+            completion(.failure(Error.alreadyGetFromBackend))
+            return
+        }
+        
         networkManager?.get(id: id, completionBlock: { [weak self] result in
             guard self != nil else { return }
             
@@ -57,8 +63,8 @@ final class DetailViewModel {
         entries[index]
     }
     
-    func indexPerRow(indexPath: IndexPath) -> String {
-        entries[indexPath.section].diff.content
+    func indexPerRow(indexPath: IndexPath) -> String? {
+        entries[indexPath.section].diff?.content
     }
     
     func expandOrCollapseEntry(index: Int) {

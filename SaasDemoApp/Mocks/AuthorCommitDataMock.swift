@@ -18,33 +18,21 @@ struct AuthorCommitDataMock: MockData {
 "email":"aleks@gmail.com",
 "subject":"subject1",
 "date":"2018-02-01T19:10:04+00:00",
-"timeInterval": 4.6,
+"timeInterval": 3.3,
 "entries" : [{
         "status": "Modified",
         "fileName": "firthFile",
-        "isExpand": false,
-        "diff": {
-            "idFile": "firthFile",
-            "content": "Prouder"
-        }
+        "isExpand": false
     },
     {
         "status": "Deleted",
         "fileName": "deletedFile",
-        "isExpand": false,
-        "diff": {
-           "idFile": "deletedFile",
-            "content": "Real name"
-        }
+        "isExpand": false
     },
     {
         "status": "Added",
         "fileName": "enjoyableFile",
-        "isExpand": false,
-        "diff": {
-            "idFile": "enjoyableFile",
-            "content": "gpwoamgopmwpaomvoiaernbiopnaeioprbniopaen"
-        }
+        "isExpand": false
     }
 ]
 },
@@ -57,29 +45,17 @@ struct AuthorCommitDataMock: MockData {
 "entries": [{
         "status": "Modified",
         "fileName": "donwloadDelFile",
-        "isExpand": false,
-        "diff": {
-            "idFile": "donwloadDelFile",
-            "content": "poejwfpowjefopimweiofmweiofniowenfiowenfiowneiofonweoifnwoindaiowndoiwnvionewiovnoiwenvoianweiovnawioenviowenvionaweoivnwioenvoiawenvionaweiovnaweionvioawenviowaenvionaweiovn"
-        }
+        "isExpand": false
     },
     {
         "status": "Modified",
         "fileName": "secondSickfwFile",
-        "isExpand": false,
-        "diff": {
-            "idFile": "secondSickfwFile",
-            "content": "ap[wdkpoewmbomeroiabmoermboiaenriobnearb"
-        }
+        "isExpand": false
     },
     {
         "status": "Added",
         "fileName": "thirdgweggFile",
-        "isExpand": false,
-        "diff": {
-            "idFile": "thirdgweggFile",
-            "content": "wegmopawemvopmariobnaeiorwnbioaernb"
-        }
+        "isExpand": false
     }
 ]
 },
@@ -92,29 +68,17 @@ struct AuthorCommitDataMock: MockData {
 "entries": [{
         "status": "Added",
         "fileName": "gracefullFile",
-        "isExpand": false,
-        "diff": {
-            "idFile": "gracefullFile",
-            "content": "poejwfpowjefopimweiofmweiofniowenfiowenfiowneiofonweoifnwoindaiowndoiwnvionewiovnoiwenvoianweiovnawioenviowenvionaweoivnwioenvoiawenvionaweiovnaweionvioawenviowaenvionaweiovn"
-        }
+        "isExpand": false
     },
     {
         "status": "Modified",
         "fileName": "goodFile",
-        "isExpand": false,
-        "diff": {
-            "idFile": "goodFile",
-            "content": "ap[wdkpoewmbomeroiabmoermboiaenriobnearb"
-        }
+        "isExpand": false
     },
     {
         "status": "Added",
         "fileName": "feelfreeFile",
-        "isExpand": false,
-        "diff": {
-            "idFile": "feelfreeFile",
-            "content": "My enjoyness"
-        }
+        "isExpand": false
     }
 ]
 }]

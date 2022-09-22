@@ -30,7 +30,7 @@ struct Commit: Author {
 struct ChangesetEntry: Codable {
     let status: EntryStatus
     let fileName: String
-    var diff: Diff
+    var diff: Diff?
     
     var isExpand: Bool = false
     

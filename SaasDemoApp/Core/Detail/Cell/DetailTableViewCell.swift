@@ -38,7 +38,7 @@ final class DetailTableViewCell: UITableViewCell {
         ])
     }
     
-    func configureCell(content: String) {
+    func configureCell(content: String?) {
         descriptionLabel.text = content
     }
 }
