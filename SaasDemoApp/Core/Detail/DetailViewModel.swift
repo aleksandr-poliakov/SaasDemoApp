@@ -18,16 +18,16 @@ final class DetailViewModel {
         case alreadyGetFromBackend
     }
     
-    var dataIsLoaded: Observer<Bool>?
+    var dataIsLoaded: Observer<Int>?
     
     init(author: Author, networkManager: DetailFilterManagerProtocol) {
         self.entries = author.entries
         self.networkManager = networkManager
     }
     
-    func fetchData(index: Int, id: String, completion: @escaping Result) {
+    func fetchData(index: Int, id: String) {
         if entries[index].diff != nil {
-            completion(.failure(Error.alreadyGetFromBackend))
+            dataIsLoaded?(index)
             return
         }
         
@@ -37,11 +37,9 @@ final class DetailViewModel {
             switch result {
             case .success(let data):
                 self?.entries[index].diff = data
-                self?.dataIsLoaded?(true)
-                completion(.success(true))
+                self?.dataIsLoaded?(index)
             case .failure:
-                self?.dataIsLoaded?(false)
-                completion(.failure(Error.cantGetDiffData))
+                self?.dataIsLoaded?(index)
             }
         })
     }

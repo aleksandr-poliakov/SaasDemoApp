@@ -24,10 +24,13 @@ final class DetailViewController: UIViewController {
     private let loaderView = LoaderActivityIndicatorView(style: .large)
     private let headerView = DetailViewHeader()
     
-    private var viewModel: DetailViewModel
+    private var viewModel: DetailViewModel? {
+        didSet {
+            bind()
+        }
+    }
 
-    init(viewModel: DetailViewModel) {
-        self.viewModel = viewModel
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -38,18 +41,16 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        bind()
     }
     
     // MARK: - Bind ViewModel with Observer
     
     private func bind() {
-        viewModel.dataIsLoaded = { [weak self] loaded in
+        viewModel?.dataIsLoaded = { [weak self] index in
             guard self != nil else { return }
             
-            if loaded {
-                self?.tableView.reloadData()
-            }
+            self?.performAnimation(index: index)
+            self?.loaderView.stopLoading()
         }
     }
     
@@ -87,15 +88,25 @@ final class DetailViewController: UIViewController {
  
 extension DetailViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.numberOfSections
+        guard let viewModel = viewModel else { return 0 }
+        
+        return viewModel.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numberOfItems(index: section)
+        guard let viewModel = viewModel else { return 0 }
+        
+        return viewModel.numberOfItems(index: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as? DetailTableViewCell else { return UITableViewCell() }
+        guard
+            let viewModel = viewModel,
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as? DetailTableViewCell
+        else
+        {
+            return UITableViewCell()
+        }
         
         cell.configureCell(content: viewModel.indexPerRow(indexPath: indexPath))
         return cell
@@ -106,6 +117,8 @@ extension DetailViewController: UITableViewDataSource {
 
 extension DetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let viewModel = viewModel else { return nil }
+        
         let header = DetailTableViewHeaderView(index: section, delegate: self)
         header.configureView(entry: viewModel.indexPerSection(index: section))
         return header
@@ -124,18 +137,11 @@ extension DetailViewController: UITableViewDelegate {
 
 extension DetailViewController: DetailTableViewHeaderDelegate {
     func expandCell(index: Int) {
+        guard let viewModel = viewModel else { return }
+        
         loaderView.startLoading(view: view)
         viewModel.expandOrCollapseEntry(index: index)
-        viewModel.fetchData(index: index, id: viewModel.getFileId(index: index)) { [weak self] result in
-            switch result {
-            case .success:
-                self?.loaderView.stopLoading()
-                self?.performAnimation(index: index)
-            case .failure:
-                self?.loaderView.stopLoading()
-                self?.performAnimation(index: index)
-            }
-        }
+        viewModel.fetchData(index: index, id: viewModel.getFileId(index: index))
     }
 }
 
