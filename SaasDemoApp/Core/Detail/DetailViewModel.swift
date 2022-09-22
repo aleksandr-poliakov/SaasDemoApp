@@ -11,12 +11,6 @@ final class DetailViewModel {
     private var networkManager: DetailFilterManagerProtocol?
     private var entries: [ChangesetEntry] = []
     typealias Observer<T> = (T) -> Void
-    typealias Result = (Swift.Result<Bool, Error>) -> Void
-    
-    enum Error: Swift.Error {
-        case cantGetDiffData
-        case alreadyGetFromBackend
-    }
     
     var dataIsLoaded: Observer<Int>?
     
