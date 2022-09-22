@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AuthorObjectSelectedDelegate: AnyObject {
-    func authorObjectSelected(author: Commit)
+    func authorObjectSelected(author: Author)
 }
 
 final class DetailViewController: UIViewController {
@@ -148,7 +148,7 @@ extension DetailViewController: DetailTableViewHeaderDelegate {
 // MARK: - AuthorObjectSelectedDelegate
 
 extension DetailViewController: AuthorObjectSelectedDelegate {
-    func authorObjectSelected(author: Commit) {
+    func authorObjectSelected(author: Author) {
         headerView.author = author
         
         let detailFilterManager = DetailManager(timeInterval: author.timeInterval, mock: DiffMockData())

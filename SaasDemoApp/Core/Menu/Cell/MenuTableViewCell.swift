@@ -67,7 +67,7 @@ final class MenuTableViewCell: UITableViewCell {
         ])
     }
     
-    func configureCell(author: Commit) {
+    func configureCell(author: Author) {
         nameLabel.text = author.name
         dateLabel.text = author.date.formatted()
         hashLabel.text = author.commitHash

@@ -36,7 +36,7 @@ final class MenuViewModel {
         authors.count
     }
     
-    func indexPerItem(index: Int) -> Commit {
+    func indexPerItem(index: Int) -> Author {
         authors[index]
     }
 }

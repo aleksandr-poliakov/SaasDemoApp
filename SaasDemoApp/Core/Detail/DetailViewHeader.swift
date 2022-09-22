@@ -29,7 +29,7 @@ final class DetailViewHeader: UIView {
     
     private var subjectContainerView = UIView()
     
-    var author: Commit? {
+    var author: Author? {
         didSet {
             configureAuthor(author: author)
         }
@@ -94,7 +94,7 @@ final class DetailViewHeader: UIView {
         ])
     }
     
-    private func configureAuthor(author: Commit?) {
+    private func configureAuthor(author: Author?) {
         guard let author = author else { return }
         
         nameLabel.text = "Author: \(author.name)"
