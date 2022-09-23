@@ -8,7 +8,7 @@
 import Foundation
 
 final class MenuViewModel {
-    private var networkManager: HTTPManagerProtocol?
+    private var networkManager: HTTPManagerProtocol
     private var authors: [Commit] = []
     typealias Observer<T> = (T) -> Void
     
@@ -19,7 +19,7 @@ final class MenuViewModel {
     }
     
     func fetchData() {
-        networkManager?.get(completionBlock: { [weak self] result in
+        networkManager.get(completionBlock: { [weak self] result in
             guard self != nil else { return }
             
             switch result {

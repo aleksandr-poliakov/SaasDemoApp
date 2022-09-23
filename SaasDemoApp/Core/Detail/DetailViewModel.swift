@@ -8,7 +8,7 @@
 import Foundation
 
 final class DetailViewModel {
-    private var networkManager: DetailFilterManagerProtocol?
+    private var networkManager: DetailFilterManagerProtocol
     private var entries: [ChangesetEntry] = []
     typealias Observer<T> = (T) -> Void
     
@@ -25,7 +25,7 @@ final class DetailViewModel {
             return
         }
         
-        networkManager?.get(id: id, completionBlock: { [weak self] result in
+        networkManager.get(id: id, completionBlock: { [weak self] result in
             guard self != nil else { return }
             
             switch result {
